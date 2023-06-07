@@ -17,9 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::any('/django/{any}', function ($any) {
-//     $url = env('DJANGO_URL') . '/' . $any;
-//     $response = Http::withHeaders(request()->header())->send(request()->method(), $url, request()->all());
-//     return $response->body();
-// })->where('any', '.*');
+Route::any('/django/{any}', function ($any) {
+    $url = env('DJANGO_URL') . '/' . $any;
+    $response = Http::withHeaders(request()->header())->send(request()->method(), $url, request()->all());
+    return $response->body();
+})->where('any', '.*');
 
